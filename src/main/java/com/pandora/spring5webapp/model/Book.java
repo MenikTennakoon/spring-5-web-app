@@ -1,14 +1,20 @@
 package com.pandora.spring5webapp.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
     private String title;
     private String isbn;
     private String publisher;
 
+    @ManyToMany
     private Set<Author> authors =  new HashSet<>();
 
     public Book() {
@@ -18,7 +24,6 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
-        //
     }
 
     public Book(String title, String isbn, String publisher, Set<Author> authors) {
