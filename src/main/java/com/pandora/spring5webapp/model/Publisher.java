@@ -11,9 +11,6 @@ public class Publisher {
     String name;
     String address;
 
-    @OneToOne(mappedBy = "Id")
-    Book book;
-
     public Publisher() {
     }
 
